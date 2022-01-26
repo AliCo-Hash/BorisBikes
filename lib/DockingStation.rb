@@ -1,16 +1,20 @@
 class DockingStation 
-
+  #essentially writes the bike method on any instance variable in this class
   attr_reader :bike
-
+  
   def release_bike
-    @bike = Bike.new
-    @bike
+    fail "No bikes left" unless @bike
+    bike.new
   end
 
-  def dock_bike(bike)
+  def dock(bike)
     @bike = bike
+   
   end
 
+
+
+  
 end
 
 class Bike
@@ -19,14 +23,3 @@ class Bike
       true
     end   
 end  
-
-class Item
-    attr_reader :item_name  
-  
-    def initialize(item_name)
-      @item_name = item_name
-    end  
-  end
-  
-  item = Item.new("agragarok")
-  p item.item_name
